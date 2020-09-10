@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  redis_master:
+    container_name: redis_master
+    image: redis-with-store
+    networks:
+      - cluster
+    ports:
+      - '6379:6379'
+    volumes:
+      - type: bind
+        source: /apps/redis/redis-master-data
+        target: /redis-master-data
+     
+networks:
+  cluster:
+  
+ 
